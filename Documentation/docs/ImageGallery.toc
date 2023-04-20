@@ -1,0 +1,16 @@
+\contentsline {section}{\numberline {1}Description}{3}{}%
+\contentsline {section}{\numberline {2}Database}{4}{}%
+\contentsline {subsection}{\numberline {2.1}Database Design}{4}{}%
+\contentsline {subsubsection}{\numberline {2.1.1}EER-Model}{5}{}%
+\contentsline {subsection}{\numberline {2.2}Database Development Methodology}{6}{}%
+\contentsline {section}{\numberline {3}User Interface}{7}{}%
+\contentsline {subsection}{\numberline {3.1}Prototyping}{7}{}%
+\contentsline {subsubsection}{\numberline {3.1.1}Login Screen}{7}{}%
+\contentsline {subsection}{\numberline {3.2}Colour Palletes}{8}{}%
+\contentsline {subsubsection}{\numberline {3.2.1}Green-Blueish}{8}{}%
+\contentsline {subsection}{\numberline {3.3}Structure}{8}{}%
+\contentsline {section}{\numberline {4}Code Architecture}{8}{}%
+\contentsline {subsection}{\numberline {4.1}Structure}{8}{}%
+\contentsline {subsection}{\numberline {4.2}GalleryGenieApp}{8}{}%
+\contentsline {subsection}{\numberline {4.3}GalleryGenieServer}{8}{}%
+\contentsline {subsection}{\numberline {4.4}Developer Notes}{8}{}%
