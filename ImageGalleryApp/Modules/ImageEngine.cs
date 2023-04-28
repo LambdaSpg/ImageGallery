@@ -1,3 +1,5 @@
+using System;
+
 namespace ImageGalleryApp.Modules;
 
 public class ImageEngine
@@ -6,6 +8,7 @@ public class ImageEngine
     
     public static void Init()
     {
-        
+        var state = Database.CheckConnection() ? "Successful" : "not established";
+        Console.WriteLine($"Connection to the Database was: {state}");
     }
 }

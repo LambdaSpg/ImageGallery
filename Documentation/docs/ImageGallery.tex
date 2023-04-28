@@ -3,15 +3,33 @@
 \title{GalleryGenie \\
 		An Intelligent Image Tagging System}
 
+
+
 %Custom Commands
 \newcommand{\imgal}{GalleryGenie}
-\newcommand{\imgalapp}{\imgal App}
-\newcommand{\imgalclient}{\imgal Client}
-\newcommand{\imgalserver}{\imgal Server}
+\newcommand{\imgalapp}{\color{client}\imgal App\color{black}}
+\newcommand{\imgalclient}{\color{client}\imgal Client\color{black}}
+\newcommand{\imgalserver}{\color{server}\imgal Server\color{black}}
 
 \usepackage{amsmath} %notwendig für math
 \usepackage{graphicx} %notwendig für .png .jpg .pdf1
 \usepackage{multicol} %notwendig für multiple columns
+\usepackage{soul} %striketrough
+
+
+\usepackage{fontspec-luatex}
+\usepackage{fontspec}
+
+\usepackage{xcolor}
+\usepackage{titlesec}
+
+\setmainfont{Spectral Light}
+\setsansfont{Comfortaa}
+\setmonofont{JetBrainsMono Nerd Font}
+
+
+\definecolor{client}{rgb}{0.4,0,1}
+\definecolor{server}{rgb}{0.75,0,0.4}
 
 \begin{document}
 %\sffamily % SANS SERIF
@@ -21,7 +39,7 @@
 \newpage
 
 \section{Description}
-\textbf{\imgal{}} is an intuitive and intelligent image organization and management application that streamlines the process of managing large collections of digital images. The application offers an easy-to-use and visually appealing interface for storing, categorizing, and searching for images. With its advanced image analysis algorithms, \imgal{} automatically generates tags for each uploaded image, which helps users to easily search for and find specific images. Additionally, when a new image is uploaded, the application compares it to the images already stored in the gallery and identifies any similarities using a sophisticated likeness scoring algorithm. If a high likeness score is detected, the user is prompted to automatically copy some or all of the tags from the compared image, saving the user time and effort. With features like automatic tagging and similarity detection, \imgal{} is the perfect tool for anyone looking to efficiently manage their digital image collections.
+\textbf{\imgal{}} is an intuitive and intelligent image organization and management application that streamlines the process of managing large collections of digital images. The application offers an easy-to-use and visually appealing interface for storing, categorizing, and searching for images.  \st{With its advanced image analysis algorithms, GalleryGenie automatically generates tags for each uploaded image, which helps users to easily search for and find specific images}. Additionally, when a new image is uploaded, the application compares it to the images already stored in the gallery and identifies any similarities using a sophisticated likeness scoring algorithm. If a high likeness score is detected, the user is prompted to automatically copy some or all of the tags from the compared image, saving the user time and effort. With features like automatic tagging and similarity detection, \imgal{} is the perfect tool for anyone looking to efficiently manage their digital image collections.
 
 \newpage
 \section{Database}
@@ -101,22 +119,23 @@ The user interface of my application is designed to be intuitive and user-friend
 
 \newpage
 \subsection{Colour Palletes}
-\subsubsection{Green-Blueish}
 \begin{figure}[!h]
-	\includegraphics[width=\linewidth]{../imgs/pallete1.png}
+	\includegraphics[width=\linewidth,height=\columnwidth]{../imgs/Colours.png}
 \end{figure}
+
+\newpage
 \subsection{Structure}
 
 
 \section{Code Architecture}
 \subsection{Structure}
-The Project is strictly divided into two parts. The \imgalapp{}  and \imgalserver{}. Currently the idea is that the former does not need a live server to function. But instead the \imgalserver{} is an addition to the client. Although the WPF-App is capable of saving and managing the images on its own, it can be used in unison with the \imgalserver{} which functions in a very simple way.
+The Project is strictly divided into two parts. The \imgalapp{}  and \imgalserver{}. Currently the idea is that the former does not need a live server to function. But instead the Server is an addition to the client. Although the WPF-App is capable of saving and managing the images on its own, it can be used in unison with the \imgalserver{} which functions in a very simple way.
 
 
 \subsection{\imgalapp}
 
 \subsection{\imgalserver}
-The \textbf{\imgalserver{}} is a plain \textbf{.NET} Application that listens for connection from a \imgalclient{}. Once a client connects to the \imgalserver{} over the internet, every action that is taken on the client gets rerouted to the server instead of being saved and executed in the local storage.
+The \textbf{\imgalserver{}} is a plain \textbf{.NET} Application that listens for connection from a \imgalclient{}. Once a client connects to the Server over the internet, every action that is taken on the client gets rerouted to the server instead of being saved and executed in the local storage.
 \subsection{Developer Notes}
 Because this project is designed to be done in and for school, I really don't expect to finish the \imgalapp{} and the \imgalserver{}. Mostly because I overshot my own capabilities and free time. So the main priority of the project lingers on the WPF-App.
 

@@ -3,27 +3,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModel="clr-namespace:ImageGalleryApp.Avalonia.ViewModel"
+        xmlns:view="clr-namespace:ImageGalleryApp.Avalonia.View"
         mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="300"
+        Width="1400" Height="800"
         x:Class="ImageGalleryApp.MainWindow"
         Title="ImageGalleryApp">
     <Design.DataContext>
         <viewModel:MainWindowViewModel/>
     </Design.DataContext>
     
-    <Grid ColumnDefinitions="100,100,100" RowDefinitions="Auto,Auto,Auto" Margin="2" ShowGridLines="True"> 
-        <TextBlock Text="Col0Row0:" Grid.Row="0" Grid.Column="0"/>
-        <TextBlock Text="Col0Row1:" Grid.Row="1" Grid.Column="0"/>
-        <TextBlock Text="Col0Row2:" Grid.Row="2" Grid.Column="0"/>
-        <CheckBox Content="Col2Row0" Grid.Row="0" Grid.Column="2"/>
-        
-        <Border Background="Red"
-                BorderBrush="Black"
-                BorderThickness="2"
-                CornerRadius="3"
-                Padding="4"
-                BoxShadow="5 5 10 2 Blue"
-                Grid.Row="2" Grid.Column="2">
-            <Button Content="SpansCol1-2Row1-2"/>
-        </Border>
-    </Grid>
+    <Border CornerRadius="5">
+    <Panel>
+        <Panel>
+            <view:Content DataContext="{Binding ContentViewModel}"/>
+        </Panel>
+        <view:Titlebar VerticalAlignment="Top" Padding="10 0 10 0"/>
+
+    </Panel>
+    </Border>
 </Window>

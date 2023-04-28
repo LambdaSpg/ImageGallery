@@ -7,7 +7,7 @@ public class ImageContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder
-            .UseMySql("server=localhost;uid=root;pwd=password;database=hello")
+            .UseMySql("server=localhost;uid=root;pwd=k0nradius;database=imagegallery")
             .EnableDetailedErrors()
             .EnableSensitiveDataLogging();
     }
