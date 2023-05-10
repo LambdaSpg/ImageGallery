@@ -2,16 +2,36 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModel="clr-namespace:ImageGalleryApp.Avalonia.ViewModel"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="ImageGalleryApp.Avalonia.View.LoginWindow"
 >
+    <Design.DataContext>
+        <viewModel:LoginViewModel/>
+    </Design.DataContext>
     
+    <UserControl.Styles>
+        
+        <Style Selector=":is(Button)">
+            <Setter Property="Background" Value="#01E677"/> 
+            <Setter Property="RenderTransform" Value="rotate(1turn)" />
+            <Setter Property="BorderThickness" Value="0"></Setter>
+        </Style>
+        
+        <Style Selector="Button:pointerover">
+            <Setter Property="Background" Value="Coral"/> 
+        </Style>
+    </UserControl.Styles>
     
     <Panel>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical" Spacing="10">
-            <TextBox Name="Name" Width="100">Help ME</TextBox>
-            <TextBox Name="Password" Width="100"></TextBox>
+            <Image Source="/Assets/account.png" Width="200" Height="200"/>
+            <Button HorizontalAlignment="Center"
+                    Padding="20 10 20 10">
+                Login
+            </Button>
         </StackPanel>
+        
         
         <Panel.Background>
             <RadialGradientBrush Radius="10">

@@ -4,29 +4,33 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="ImageGalleryApp.Avalonia.View.Titlebar">
-    <DockPanel>
-        <!-- ReSharper Disable InconsistentNaming -->
-        <Rectangle Name="OSXControlSpacer"
-                   Width="70.0"
-                   DockPanel.Dock="Left" />
+    <Border Padding="15.0"
+            Background="#233137">
+        <DockPanel>
+            <!-- ReSharper Disable InconsistentNaming -->
+            <Rectangle Name="OSXControlSpacer"
+                       Width="70.0"
+                       DockPanel.Dock="Left" />
 
-        <TextBlock DockPanel.Dock="Left"
-                   VerticalAlignment="Center"
-                   Text="Welcome Back!"
-                   Classes="Bold" />
+            
+            <TextBlock DockPanel.Dock="Left"
+                       VerticalAlignment="Center"
+                       Text="GalleryGenie"
+                       Classes="Bold" Foreground="#626C71" FontSize="24.0"/>
 
-        <Rectangle Name="WinControlSpacer"
-                   Width="140.0"
-                   DockPanel.Dock="Right" />
+            <Rectangle Name="WinControlSpacer"
+                       Width="140.0"
+                       DockPanel.Dock="Right" />
 
-        <!-- Rounded user profile image -->
-        <Image DockPanel.Dock="Right" />
+            <!-- Rounded user profile image -->
+            <Image DockPanel.Dock="Right" />
 
-        <TextBlock DockPanel.Dock="Right"
-                   VerticalAlignment="Center"
-                   Text="Username"
-                   Classes="Bold" />
+            <TextBlock DockPanel.Dock="Right"
+                       VerticalAlignment="Center"
+                       Text="Imaging made Simple"
+                       Foreground="#626C71" FontSize="17.0"/>
 
-        <Border Background="Transparent" />
-    </DockPanel>
+            <Border Background="Transparent"/>
+        </DockPanel>
+    </Border>
 </UserControl>

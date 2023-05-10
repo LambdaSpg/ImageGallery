@@ -12,6 +12,9 @@ public class ContentViewModel : ViewModelBase
         _content = new LoginWindow();
     }
 
+    /// <summary>
+    /// Change the Content Displayed in the Window
+    /// </summary>
     public Layoutable Content
     {
         get => _content;

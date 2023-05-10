@@ -10,6 +10,7 @@ internal class Database
     public Database()
     {
         Ctx = new ImageContext();
+        
     }
 
     public bool CheckConnection()
