@@ -12,9 +12,4 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
     }
-
-    private void Button_OnClick(object? sender, RoutedEventArgs e)
-    {
-        ViewModel.Text = "It didnt work!";
-    }
 }

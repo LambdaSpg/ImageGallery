@@ -1,16 +1,24 @@
 using System;
 using Avalonia.Media;
+using ImageGalleryApp.Avalonia.View;
 
 namespace ImageGalleryApp.Avalonia.ViewModel;
 
 public class LoginViewModel : ViewModelBase
 {
-    //private Brush brush = new SolidColorBrush(Color.FromRgb(1, 230, 119));
-    private Brush brush = new SolidColorBrush(0x2200ff);
-    
-    public Brush Brush
+    private ContentViewModel contentView;
+
+    public LoginViewModel(ContentViewModel contentView)
     {
-        get => brush;
-        set => RaiseAndSetIfChanged(ref brush, value);
+        this.contentView = contentView;
+    }
+    
+    public void OnClickCommand()
+    {
+        Console.WriteLine("Working");
+        contentView.Content = new HomeWindow()
+        {
+            DataContext = new HomeWindowViewModel()
+        };
     }
 }

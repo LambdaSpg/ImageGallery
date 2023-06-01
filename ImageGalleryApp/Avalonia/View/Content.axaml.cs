@@ -11,7 +11,7 @@ public partial class Content : UserControl
         InitializeComponent();
     }
 
-    private void InitializeComponent()
+   private void InitializeComponent()
     {
         AvaloniaXamlLoader.Load(this);
     }

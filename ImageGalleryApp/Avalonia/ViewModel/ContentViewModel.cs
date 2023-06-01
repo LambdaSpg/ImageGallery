@@ -9,7 +9,7 @@ public class ContentViewModel : ViewModelBase
 
     public ContentViewModel()
     {
-        _content = new LoginWindow();
+        _content = new LoginWindow(this);
     }
 
     /// <summary>

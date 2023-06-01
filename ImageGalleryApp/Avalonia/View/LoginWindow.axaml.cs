@@ -3,6 +3,7 @@ using System.Drawing;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
+using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using ImageGalleryApp.Avalonia.ViewModel;
@@ -13,14 +14,20 @@ namespace ImageGalleryApp.Avalonia.View;
 
 public partial class LoginWindow : UserControl
 {
-    private LoginViewModel ViewModel = new LoginViewModel();
-    public LoginWindow()
+    private LoginViewModel viewModel;
+    
+    public LoginWindow(ContentViewModel contentView)
     {
+        viewModel = new LoginViewModel(contentView);
         InitializeComponent();
-        
     }
     private void InitializeComponent()
     {
         AvaloniaXamlLoader.Load(this);
+    }
+
+    private void Button_OnClick(object? sender, RoutedEventArgs e)
+    {
+        viewModel.OnClickCommand();
     }
 }

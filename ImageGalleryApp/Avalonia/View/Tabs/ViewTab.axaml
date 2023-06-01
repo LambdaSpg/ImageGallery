@@ -1,0 +1,47 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:tabs="clr-namespace:ImageGalleryApp.Avalonia.ViewModel.Tabs"
+             xmlns:models="clr-namespace:ImageGalleryApp.Models"
+             xmlns:global="clr-namespace:"
+             xmlns:converters="clr-namespace:AvalonStudio.Extensibility.Converters"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ImageGalleryApp.Avalonia.View.Tabs.ViewTab">
+
+    <Design.DataContext>
+        <tabs:ViewTabViewModel />
+    </Design.DataContext>
+    
+    <UserControl.Resources>
+        <converters:BitmapAssetConverter x:Key="ValueConverter"/>
+    </UserControl.Resources>
+    
+    <Panel>
+        <ScrollViewer>
+            <!--<Grid VerticalAlignment="Center" HorizontalAlignment="Center" Name="ImageGrid" 
+              ColumnDefinitions="150,150,150,150,150,150" RowDefinitions="150,150,150,150,150"
+              ShowGridLines="True">
+                <TextBlock Grid.Row="0" Grid.Column="0">Hello World</TextBlock> 
+                <TextBlock Grid.Row="0" Grid.Column="1">Hello World</TextBlock> 
+                <TextBlock Grid.Row="0" Grid.Column="2">Hello World</TextBlock> 
+                <TextBlock Grid.Row="0" Grid.Column="3">Hello World</TextBlock> 
+                <TextBlock Grid.Row="0" Grid.Column="4">Hello World</TextBlock> 
+                <TextBlock Grid.Row="0" Grid.Column="5">Hello World</TextBlock> 
+                <TextBlock Grid.Row="1" Grid.Column="0">Hello World</TextBlock> 
+            </Grid>-->
+            <ItemsControl Items="{Binding Posts}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="{x:Type models:Post}">
+                        <Image Source="{Binding Path ,Converter={StaticResource ValueConverter}}" Height="200"></Image>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"></StackPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </ScrollViewer>
+    </Panel>
+</UserControl>

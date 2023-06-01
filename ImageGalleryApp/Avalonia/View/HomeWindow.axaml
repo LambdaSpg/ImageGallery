@@ -1,0 +1,37 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModel="clr-namespace:ImageGalleryApp.Avalonia.ViewModel"
+             xmlns:tabs="clr-namespace:ImageGalleryApp.Avalonia.View.Tabs"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ImageGalleryApp.Avalonia.View.HomeWindow">
+
+    <Design.DataContext>
+        <viewModel:HomeWindowViewModel />
+    </Design.DataContext>
+
+    <Panel>
+        <TabControl Margin="0 60 0 0"  Name="TabControl">
+            <TabItem Header="Upload" Background="Coral">
+                <!--<StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical" Spacing="10">
+                    <TextBlock FontSize="20">Hello World</TextBlock>
+                </StackPanel>-->
+                <tabs:UploadTab/>
+            </TabItem>
+            <TabItem Header="View" Background="Coral" Name="ViewTab">
+                <tabs:ViewTab DataContext="{Binding ViewTabViewModel}" />
+            </TabItem>
+        </TabControl>
+        
+        
+
+
+        <Panel.Background>
+            <RadialGradientBrush Radius="10">
+                <GradientStop Color="#324148" Offset="0"></GradientStop>
+                <GradientStop Color="#28353B" Offset=".09"></GradientStop>
+            </RadialGradientBrush>
+        </Panel.Background>
+    </Panel>
+</UserControl>

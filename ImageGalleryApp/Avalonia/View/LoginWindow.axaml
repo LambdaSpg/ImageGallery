@@ -27,7 +27,9 @@
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical" Spacing="10">
             <Image Source="/Assets/account.png" Width="200" Height="200"/>
             <Button HorizontalAlignment="Center"
-                    Padding="20 10 20 10">
+                    Padding="80 10 80 10"
+                    FontWeight="Bold" FontSize="18" Foreground="#454D51"
+                    Click="Button_OnClick">
                 Login
             </Button>
         </StackPanel>
