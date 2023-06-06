@@ -73,7 +73,8 @@ namespace ImageGalleryApp.Migrations
                     Title = table.Column<string>(type: "longtext", nullable: false),
                     AuthorId = table.Column<int>(type: "int", nullable: false),
                     PoolId = table.Column<int>(type: "int", nullable: false),
-                    CreationDate = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                    CreationDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    Path = table.Column<string>(type: "longtext", nullable: false)
                 },
                 constraints: table =>
                 {

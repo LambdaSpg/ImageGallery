@@ -16,7 +16,7 @@ namespace ImageGalleryApp.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.0-preview.3.23174.2")
+                .HasAnnotation("ProductVersion", "7.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("ImageGalleryApp.Models.Pool", b =>
@@ -45,6 +45,10 @@ namespace ImageGalleryApp.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Path")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<int>("PoolId")
                         .HasColumnType("int");

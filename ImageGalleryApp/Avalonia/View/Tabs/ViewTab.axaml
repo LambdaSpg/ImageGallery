@@ -17,19 +17,8 @@
         <converters:BitmapAssetConverter x:Key="ValueConverter"/>
     </UserControl.Resources>
     
-    <Panel>
+    <Panel MaxWidth="800">
         <ScrollViewer>
-            <!--<Grid VerticalAlignment="Center" HorizontalAlignment="Center" Name="ImageGrid" 
-              ColumnDefinitions="150,150,150,150,150,150" RowDefinitions="150,150,150,150,150"
-              ShowGridLines="True">
-                <TextBlock Grid.Row="0" Grid.Column="0">Hello World</TextBlock> 
-                <TextBlock Grid.Row="0" Grid.Column="1">Hello World</TextBlock> 
-                <TextBlock Grid.Row="0" Grid.Column="2">Hello World</TextBlock> 
-                <TextBlock Grid.Row="0" Grid.Column="3">Hello World</TextBlock> 
-                <TextBlock Grid.Row="0" Grid.Column="4">Hello World</TextBlock> 
-                <TextBlock Grid.Row="0" Grid.Column="5">Hello World</TextBlock> 
-                <TextBlock Grid.Row="1" Grid.Column="0">Hello World</TextBlock> 
-            </Grid>-->
             <ItemsControl Items="{Binding Posts}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type models:Post}">
@@ -38,7 +27,7 @@
                 </ItemsControl.ItemTemplate>
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal"></StackPanel>
+                        <WrapPanel Orientation="Horizontal"></WrapPanel>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
             </ItemsControl>

@@ -25,9 +25,9 @@
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.0-preview5" />
     <PackageReference Include="Avalonia.Svg.Skia" Version="11.0.0-preview5" />
     <PackageReference Include="Avalonia.Controls.Skia" Version="11.0.0-preview5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0-preview.3.23174.2" />
     <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.0-preview5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0-preview.3.23174.2">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -57,5 +57,6 @@
   
   <ItemGroup>
     <Folder Include="Assets\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 </Project>

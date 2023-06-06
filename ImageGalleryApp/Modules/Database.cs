@@ -5,12 +5,11 @@ namespace ImageGalleryApp.Modules;
 
 internal class Database
 {
-    private ImageContext Ctx { get; set; } = null!;
+    public ImageContext Ctx { get; set; } = null!;
 
     public Database()
     {
         Ctx = new ImageContext();
-        
     }
 
     public bool CheckConnection()

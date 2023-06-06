@@ -8,6 +8,7 @@ namespace ImageGalleryApp.Avalonia.ViewModel;
 public class HomeWindowViewModel : ViewModelBase
 {
    public ViewTabViewModel ViewTabViewModel => new ViewTabViewModel();
+   public UploadTabViewModel UploadTabViewModel => new UploadTabViewModel();
 
    public HomeWindowViewModel()
    {

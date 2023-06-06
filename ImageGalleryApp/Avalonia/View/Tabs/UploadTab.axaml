@@ -2,11 +2,37 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:models="clr-namespace:ImageGalleryApp.Models"
+             xmlns:tabs="clr-namespace:ImageGalleryApp.Avalonia.ViewModel.Tabs"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="ImageGalleryApp.Avalonia.View.Tabs.UploadTab">
-    <Panel>
-        <ScrollViewer>
-           <TextBlock> Upload</TextBlock> 
-        </ScrollViewer> 
-    </Panel>
+
+    <Design.DataContext>
+        <tabs:UploadTabViewModel />
+    </Design.DataContext>
+
+    <StackPanel HorizontalAlignment="Center" Width="200">
+        <Label>Title</Label>
+        <TextBox Name="Title"></TextBox>
+        <Label>Path</Label>
+        <TextBox Name="Path"></TextBox>
+        <Label>Pool</Label>
+        <ComboBox Items="{Binding PoolList}">
+            <!--<ItemsControl Items="{Binding PoolList}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="{x:Type models:Pool}">
+                        <TextBlock Text="{Binding Name}"></TextBlock>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Panel>
+                            <ComboBoxItem />
+                        </Panel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>-->
+        </ComboBox>
+
+    </StackPanel>
 </UserControl>

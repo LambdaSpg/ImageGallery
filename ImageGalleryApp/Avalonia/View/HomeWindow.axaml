@@ -13,13 +13,10 @@
 
     <Panel>
         <TabControl Margin="0 60 0 0"  Name="TabControl">
-            <TabItem Header="Upload" Background="Coral">
-                <!--<StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical" Spacing="10">
-                    <TextBlock FontSize="20">Hello World</TextBlock>
-                </StackPanel>-->
-                <tabs:UploadTab/>
+            <TabItem Header="Upload" Background="#01E677">
+                <tabs:UploadTab DataContext="{Binding UploadTabViewModel}"/>
             </TabItem>
-            <TabItem Header="View" Background="Coral" Name="ViewTab">
+            <TabItem Header="View" Background="#01E677" Name="ViewTab">
                 <tabs:ViewTab DataContext="{Binding ViewTabViewModel}" />
             </TabItem>
         </TabControl>
