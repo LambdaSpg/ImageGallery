@@ -2,6 +2,7 @@ using System;
 using System.Collections.ObjectModel;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using ImageGalleryApp.Avalonia.ViewModel.Tabs;
 using ImageGalleryApp.Models;
@@ -20,5 +21,15 @@ public partial class UploadTab : UserControl
     private void InitializeComponent()
     {
         AvaloniaXamlLoader.Load(this);
+    }
+
+    private void Button_OnClick(object? sender, RoutedEventArgs e)
+    {
+        ViewModel.CreateNewPost();
+    }
+
+    private void OpenFileChooser(object? sender, RoutedEventArgs e)
+    {
+        ViewModel.ChooseFile();
     }
 }

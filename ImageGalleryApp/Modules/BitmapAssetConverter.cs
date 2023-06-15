@@ -14,8 +14,9 @@ namespace AvalonStudio.Extensibility.Converters
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-                var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
-                return new Bitmap(assets.Open(new Uri($"avares://ImageGalleryApp{value}")));
+            //var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
+            //return new Bitmap(assets.Open(new Uri($"avares://ImageGalleryApp{value}")));
+            return new Bitmap((string)value);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

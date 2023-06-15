@@ -19,6 +19,9 @@
             <TabItem Header="View" Background="#01E677" Name="ViewTab">
                 <tabs:ViewTab DataContext="{Binding ViewTabViewModel}" />
             </TabItem>
+            <TabItem Header="Tags" Background="#01E677">
+                <tabs:TagTab DataContext="{Binding TagTabViewModel}"></tabs:TagTab>
+            </TabItem>
         </TabControl>
         
         

@@ -7,11 +7,15 @@ namespace ImageGalleryApp.Avalonia.ViewModel;
 
 public class HomeWindowViewModel : ViewModelBase
 {
-   public ViewTabViewModel ViewTabViewModel => new ViewTabViewModel();
+   private ContentViewModel contentView;
+   public ViewTabViewModel ViewTabViewModel => new ViewTabViewModel(contentView);
    public UploadTabViewModel UploadTabViewModel => new UploadTabViewModel();
+   public TagTabViewModel TagTabViewModel => new TagTabViewModel();
 
-   public HomeWindowViewModel()
+   public HomeWindowViewModel(ContentViewModel contentViewModel)
    {
+      this.contentView = contentViewModel;
       Console.WriteLine("Initialized Homewindow");
+      //ViewTabViewModel = new ViewTabViewModel();
    }
 }

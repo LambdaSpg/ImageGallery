@@ -8,13 +8,7 @@ public class User
     public string Name { get; set; }
     public DateTime CreationDate { get; set; }
 
-    public User()
-    {
-    }
-
-    public User(int id, string name, DateTime creationDate)
-    {
-        Id = id;
+    public User(string name, DateTime creationDate){
         Name = name;
         CreationDate = creationDate;
     }

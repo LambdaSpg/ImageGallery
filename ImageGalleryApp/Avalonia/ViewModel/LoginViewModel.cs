@@ -18,7 +18,7 @@ public class LoginViewModel : ViewModelBase
         Console.WriteLine("Working");
         contentView.Content = new HomeWindow()
         {
-            DataContext = new HomeWindowViewModel()
+            DataContext = new HomeWindowViewModel(contentView)
         };
     }
 }

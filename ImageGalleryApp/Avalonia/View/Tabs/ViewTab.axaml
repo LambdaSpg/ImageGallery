@@ -17,12 +17,27 @@
         <converters:BitmapAssetConverter x:Key="ValueConverter"/>
     </UserControl.Resources>
     
-    <Panel MaxWidth="800">
-        <ScrollViewer>
+    <UserControl.Styles>
+        <Style Selector=":is(Button)">
+            <Setter Property="Background" Value="Transparent"/> 
+            <Setter Property="BorderThickness" Value="0"></Setter>
+        </Style>
+        <Style Selector="Button:pointerover">
+            <Setter Property="Background" Value="Coral"/> 
+        </Style>
+    </UserControl.Styles>
+    
+    <StackPanel Orientation="Vertical" MaxWidth="800">
+        <CheckBox Foreground="#E1E1E1" FontSize="19" 
+                  IsChecked="{Binding DeleteMode}">Delete Mode</CheckBox>
+
+        <ScrollViewer VerticalScrollBarVisibility="Hidden">
             <ItemsControl Items="{Binding Posts}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type models:Post}">
-                        <Image Source="{Binding Path ,Converter={StaticResource ValueConverter}}" Height="200"></Image>
+                        <Button Click="InspectImage">
+                            <Image Source="{Binding Path ,Converter={StaticResource ValueConverter}}" Width="200"></Image>
+                        </Button>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
                 <ItemsControl.ItemsPanel>
@@ -32,5 +47,5 @@
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
         </ScrollViewer>
-    </Panel>
+    </StackPanel>
 </UserControl>

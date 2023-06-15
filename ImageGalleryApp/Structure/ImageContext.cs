@@ -1,3 +1,4 @@
+using System;
 using ImageGalleryApp.Models;
 using Microsoft.EntityFrameworkCore;
 using MySql.EntityFrameworkCore;
@@ -17,7 +18,9 @@ public class ImageContext : DbContext
         optionsBuilder 
             .UseMySQL("server=localhost;uid=root;pwd=k0nradius;database=imagegallery")
             .EnableDetailedErrors()
-            .EnableSensitiveDataLogging();
+            .EnableSensitiveDataLogging()
+            .UseLazyLoadingProxies()
+            .LogTo(Console.WriteLine);
     }
 
     
@@ -27,8 +30,12 @@ public class ImageContext : DbContext
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.Entity<PostTags>().HasKey(sc => new { TagId = sc.TagId, PostId = sc.PostId });
-        
-        modelBuilder.Entity<Post>()
+
+
+        modelBuilder.Entity<Post>().Property(c => c.Id)
+            .ValueGeneratedOnAdd();
+
+        /*modelBuilder.Entity<Post>()
             .HasOne(e => e.Author)
             .WithMany()
             .HasForeignKey(x => x.AuthorId);
@@ -37,7 +44,7 @@ public class ImageContext : DbContext
             .HasOne(e => e.Implies)
             .WithMany()
             .HasForeignKey(x => x.ImpliesId);
-
+*/
         /*
          * modelBuilder.Entity<Role>().ToTable("roles");
         modelBuilder.Entity<Client>().ToTable("clients");

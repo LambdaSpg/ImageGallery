@@ -1,0 +1,80 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModel="clr-namespace:ImageGalleryApp.Avalonia.ViewModel"
+             xmlns:converters="clr-namespace:AvalonStudio.Extensibility.Converters"
+             xmlns:models="clr-namespace:ImageGalleryApp.Models"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ImageGalleryApp.Avalonia.View.EditPostWindow">
+    <Design.DataContext>
+        <viewModel:EditPostWindowViewModel/>
+    </Design.DataContext>
+    
+    <UserControl.Styles>
+        <Style Selector=":is(Button)">
+            <Setter Property="Background" Value="#01E677"/> 
+            <Setter Property="BorderThickness" Value="0"></Setter>
+        </Style>
+        <Style Selector="Button:pointerover">
+            <Setter Property="Background" Value="Coral"/> 
+        </Style>
+    </UserControl.Styles>
+    
+    <UserControl.Resources>
+        <converters:BitmapAssetConverter x:Key="ValueConverter"/>
+    </UserControl.Resources>
+    
+    <Panel Margin="0 60 0 0">
+        <Panel.Background>
+            <RadialGradientBrush Radius="10">
+                <GradientStop Color="#324148" Offset="0"></GradientStop>
+                <GradientStop Color="#28353B" Offset=".09"></GradientStop>
+            </RadialGradientBrush>
+        </Panel.Background>
+        
+        <StackPanel HorizontalAlignment="Center">
+            <DockPanel Margin="0 40 0 0">
+                <Label FontSize="19" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                       DockPanel.Dock="Left"
+                       Foreground="#E1E1E1" Content="{Binding Post.Title}"/>
+                <Button MaxWidth="200" HorizontalContentAlignment="Center" Padding="20 10 20 10" DockPanel.Dock="Right" 
+                        FontWeight="Medium" FontSize="18" Foreground="#454D51" Click="Exit">Back</Button>
+            </DockPanel>
+            
+            <Grid ColumnDefinitions="200, 5*" RowDefinitions="Auto" ShowGridLines="True">
+                <Image Grid.Column="1" Source="{Binding Post.Path, Converter={StaticResource ValueConverter}}"
+                       Margin="20 0 0 0" Height="400"></Image>
+                
+                <StackPanel Orientation="Vertical" Grid.Column="0">
+                    <Label FontSize="19" Foreground="#E1E1E1" HorizontalAlignment="Center">Controls</Label>
+                    <DockPanel>
+                        <Button Padding="20 10 20 10" HorizontalContentAlignment="Center"
+                                DockPanel.Dock="Left" FontWeight="Medium" FontSize="18" Foreground="#454D51"
+                                Margin="5 0 5 0" Click="AddTag">Add</Button>
+                        <Button Padding="20 10 10 10" DockPanel.Dock="Right"
+                                FontWeight="Medium" FontSize="18" Click="RemoveTag"
+                                Margin="5 0 5 0" Foreground="#454D51">Remove</Button>
+                    </DockPanel>
+                    <ComboBox Items="{Binding Tags}" Margin="0 10 0  0"
+                              Name="TagBox" SelectedItem="{Binding SelectedTag}"/>
+                    
+                    <ListBox Items="{Binding PostTags}" SelectedItem="{Binding SelectedListTag}" >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate x:DataType="{x:Type models:Tag}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Label FontSize="19" Foreground="#454D51" HorizontalAlignment="Center" Content="{Binding Id}"></Label>
+                                    <Label FontSize="19" Foreground="#454D51" HorizontalAlignment="Center" Content="{Binding Name}"></Label>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Panel>
+    
+    
+    
+    
+</UserControl>

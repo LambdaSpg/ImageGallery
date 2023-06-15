@@ -1,0 +1,36 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:tabs="clr-namespace:ImageGalleryApp.Avalonia.ViewModel.Tabs"
+             xmlns:models="clr-namespace:ImageGalleryApp.Models"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ImageGalleryApp.Avalonia.View.Tabs.TagTab">
+    <Design.DataContext>
+        <tabs:TagTabViewModel />
+    </Design.DataContext>
+    
+    <StackPanel HorizontalAlignment="Center" Width="200" Margin="1 1 1 1 ">
+        <Label FontSize="19" Foreground="#E1E1E1">Tags</Label>
+        <DockPanel>
+            <Button Padding="20 10 20 10" HorizontalContentAlignment="Center"
+                    DockPanel.Dock="Left" FontWeight="Medium" FontSize="18" Foreground="#454D51"
+                    Margin="5 0 5 0" Click="AddTag">Add</Button>
+            <Button Padding="20 10 10 10" DockPanel.Dock="Right"
+                    FontWeight="Medium" FontSize="18" Click="RemoveTag"
+                    Margin="5 0 5 0" Foreground="#454D51">Remove</Button>
+        </DockPanel>
+        <TextBox Text="{Binding TagName}"></TextBox>
+        
+        <ListBox Items="{Binding Tags}" SelectedItem="{Binding SelectedListTag}" >
+            <ListBox.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type models:Tag}">
+                    <StackPanel Orientation="Horizontal">
+                        <Label FontSize="19" Foreground="#454D51" HorizontalAlignment="Center" Content="{Binding Id}"></Label>
+                        <Label FontSize="19" Foreground="#454D51" HorizontalAlignment="Center" Content="{Binding Name}"></Label>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
+</UserControl>
